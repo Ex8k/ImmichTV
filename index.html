@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+
+    <title>Immich TV</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     LOGIN
+     ========================================================= -->
+
+<div id="loginScreen" class="screen hidden">
+
+    <div class="loginBox">
+
+        <div class="loginLogo">
+            IMMICH <span>TV</span>
+        </div>
+
+        <div class="loginSubtitle">
+            Sign in to your Immich server
+        </div>
+
+        <label>Server</label>
+
+        <input
+            id="serverInput"
+            type="text">
+
+        <label>Email</label>
+
+        <input
+            id="emailInput"
+            type="email"
+            autocomplete="username">
+
+        <label>Password</label>
+
+        <input
+            id="passwordInput"
+            type="password"
+            autocomplete="current-password">
+
+        <button id="loginButton">
+            SIGN IN
+        </button>
+
+        <div id="loginStatus"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFILES
+     ========================================================= -->
+
+<div id="profileScreen" class="screen hidden">
+
+    <div class="profilePanel">
+        <div class="loginLogo">IMMICH <span>TV</span></div>
+        <div class="loginSubtitle">Who is watching?</div>
+        <div id="profileList"></div>
+        <div class="profileHint">Use Left/Right and press Enter</div>
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     GALLERY
+     ========================================================= -->
+
+<div id="galleryScreen" class="screen hidden">
+
+    <header id="topBar">
+
+        <div class="brand">
+            <img class="brandIcon" src="icon.png" alt="">
+            IMMICH <span>TV</span>
+        </div>
+
+        <div class="topRight">
+
+            <button id="userName" type="button"></button>
+
+            <button
+                id="settingsButton"
+                class="iconButton">
+                ⚙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <div id="galleryArea">
+
+        <main id="galleryContainer">
+
+            <div id="gallery"></div>
+
+            <div id="loadingMore">
+                Loading...
+            </div>
+
+        </main>
+
+
+        <!-- DATE RAIL -->
+
+        <aside id="dateRail">
+
+            <div class="railTitle">
+                TIMELINE
+            </div>
+
+            <div id="dateRailItems"></div>
+
+        </aside>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     VIEWER
+     ========================================================= -->
+
+<div id="viewerScreen" class="screen hidden">
+
+    <div id="viewerLoading">
+        Loading...
+    </div>
+
+    <img id="viewerImage">
+
+    <video id="viewerVideo" preload="metadata" playsinline></video>
+
+    <div id="viewerInfo">
+
+        <div id="viewerDate"></div>
+
+        <div id="viewerCounter"></div>
+
+    </div>
+
+    <div id="viewerSlideshow">
+        Press Enter for slideshow
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SETTINGS
+     ========================================================= -->
+
+<div id="settingsScreen" class="overlay hidden">
+
+    <div class="settingsPanel">
+
+        <div class="settingsHeader">
+
+            <h1>Settings</h1>
+
+            <button
+                id="settingsClose"
+                class="iconButton">
+                ✕
+            </button>
+
+        </div>
+
+
+        <div class="settingSection">
+
+            <h2>Gallery</h2>
+
+            <div class="settingRow">
+
+                <div>
+                    Columns
+                </div>
+
+                <div
+                    id="columnOptions"
+                    class="optionGroup">
+
+                    <button data-columns="4">
+                        4
+                    </button>
+
+                    <button data-columns="5">
+                        5
+                    </button>
+
+                    <button data-columns="6">
+                        6
+                    </button>
+
+                    <button data-columns="7">
+                        7
+                    </button>
+
+                    <button data-columns="8">
+                        8
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="settingSection">
+
+            <h2>Slideshow</h2>
+
+            <div class="settingRow">
+
+                <div>
+                    Interval
+                </div>
+
+                <select id="slideshowInterval">
+
+                    <option value="3">
+                        3 seconds
+                    </option>
+
+                    <option value="5">
+                        5 seconds
+                    </option>
+
+                    <option value="10">
+                        10 seconds
+                    </option>
+
+                    <option value="15">
+                        15 seconds
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="settingSection">
+
+            <h2>Account</h2>
+
+            <div id="settingsUser"></div>
+
+            <button
+                id="switchProfileButton"
+                class="secondaryButton">
+                Switch profile
+            </button>
+
+            <button
+                id="logoutButton"
+                class="dangerButton">
+                Sign out
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ERROR
+     ========================================================= -->
+
+<div id="errorBox" class="hidden"></div>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

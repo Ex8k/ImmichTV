@@ -1,0 +1,861 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #0c0c0e;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+}
+
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+
+#loginScreen {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24242b 0%,
+            #0c0c0e 65%
+        );
+}
+
+.loginBox {
+    width: 620px;
+
+    padding: 50px;
+
+    background: #17171b;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.5);
+}
+
+.loginLogo {
+    text-align: center;
+
+    font-size: 48px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.loginLogo span,
+.brand span {
+    color: #999;
+    font-weight: normal;
+}
+
+.loginSubtitle {
+    text-align: center;
+
+    color: #999;
+
+    font-size: 20px;
+
+    margin-bottom: 40px;
+}
+
+.loginBox label {
+    display: block;
+
+    margin:
+        20px 0
+        8px;
+
+    color: #aaa;
+
+    font-size: 19px;
+}
+
+.loginBox input {
+    width: 100%;
+
+    padding:
+        17px 18px;
+
+    font-size: 22px;
+
+    color: white;
+
+    background: #27272d;
+
+    border:
+        3px solid transparent;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.loginBox input:focus {
+    border-color: white;
+}
+
+#loginButton {
+    width: 100%;
+
+    margin-top: 32px;
+
+    padding: 18px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: white;
+
+    color: #111;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#loginButton:focus {
+    outline:
+        5px solid #777;
+}
+
+#loginStatus {
+    min-height: 30px;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #ff7070;
+
+    font-size: 18px;
+}
+
+/* ============================================================
+   PROFILES
+   ============================================================ */
+
+#profileScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #24242b 0%, #0c0c0e 70%);
+}
+
+.profilePanel {
+    width: 1500px;
+    text-align: center;
+}
+
+#profileList {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    min-height: 250px;
+}
+
+.profileCard {
+    width: 220px;
+    min-height: 220px;
+    padding: 28px 18px;
+    border: 5px solid transparent;
+    border-radius: 18px;
+    background: #202026;
+    color: white;
+    text-align: center;
+}
+
+.profileCard.focused {
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.profileAvatar {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4b4b56;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.profileName {
+    font-size: 23px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileEmail {
+    margin-top: 8px;
+    color: #999;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileHint {
+    margin-top: 35px;
+    color: #777;
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+#topBar {
+    height: 95px;
+
+    padding:
+        0 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: #121215;
+
+    border-bottom:
+        1px solid #28282d;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 35px;
+
+    font-weight: bold;
+}
+
+.brandIcon {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.topRight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+#userName {
+    padding: 12px 18px;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    color: #aaa;
+    font-size: 20px;
+}
+
+#userName.profileSwitchAvailable {
+    color: white;
+}
+
+#userName.profileSwitchAvailable::after {
+    content: "  ▾";
+    color: #aaa;
+}
+
+#userName.remoteFocused {
+    border-color: white;
+    outline: 5px solid rgba(255,255,255,.2);
+}
+
+.iconButton {
+    width: 58px;
+    height: 58px;
+
+    border: 3px solid transparent;
+
+    border-radius: 50%;
+
+    background: #28282e;
+
+    color: white;
+
+    font-size: 27px;
+}
+
+.iconButton:focus {
+    border-color: white;
+
+    outline: none;
+}
+
+.iconButton.remoteFocused {
+    border-color: white;
+    outline: 5px solid rgba(255,255,255,.2);
+}
+
+
+/* ============================================================
+   GALLERY AREA
+   ============================================================ */
+
+#galleryArea {
+    position: absolute;
+
+    top: 95px;
+    bottom: 0;
+
+    width: 100%;
+
+    display: flex;
+}
+
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+
+#galleryContainer {
+    flex: 1;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        26px
+        24px
+        80px
+        36px;
+
+    scrollbar-width: none;
+}
+
+#galleryContainer::-webkit-scrollbar {
+    display: none;
+}
+
+#gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 12px;
+}
+
+.asset {
+    position: relative;
+
+    aspect-ratio: 16 / 10;
+
+    min-height: 145px;
+
+    background: #202025;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    border:
+        4px solid transparent;
+
+    transition:
+        transform .1s ease,
+        border-color .1s ease;
+}
+
+.asset img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.asset.focused {
+    border-color: white;
+
+    transform: scale(1.035);
+
+    z-index: 5;
+}
+
+.videoBadge {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.75);
+
+    font-size: 20px;
+}
+
+.assetDate {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding:
+        28px
+        10px
+        8px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.78)
+        );
+
+    font-size: 15px;
+}
+
+#loadingMore {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #777;
+
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   DATE RAIL
+   ============================================================ */
+
+#dateRail {
+    width: 190px;
+
+    flex-shrink: 0;
+
+    background: #111114;
+
+    border-left:
+        1px solid #29292d;
+
+    padding:
+        25px 15px;
+
+    overflow: hidden;
+}
+
+.railTitle {
+    color: #777;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin:
+        0
+        10px
+        20px;
+}
+
+#dateRailItems {
+    height:
+        calc(100% - 40px);
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+#dateRailItems::-webkit-scrollbar {
+    display: none;
+}
+
+.railYear {
+    color: white;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    padding:
+        16px
+        10px
+        7px;
+}
+
+.railMonth {
+    display: flex;
+    justify-content: space-between;
+    padding:
+        10px
+        12px;
+
+    margin:
+        2px 0;
+
+    border-radius: 6px;
+
+    color: #888;
+
+    font-size: 17px;
+}
+
+.railMonth span {
+    color: #666;
+    font-size: 14px;
+}
+
+.railMonth.focused span {
+    color: #444;
+}
+
+.railMonth.current {
+    color: white;
+}
+
+.railMonth.focused {
+    color: #111;
+
+    background: white;
+}
+
+
+/* ============================================================
+   VIEWER
+   ============================================================ */
+
+#viewerScreen {
+    background: black;
+
+    z-index: 100;
+}
+
+#viewerImage,
+#viewerVideo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: none;
+}
+
+#viewerVideo {
+    background: black;
+}
+
+#viewerLoading {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: #888;
+
+    font-size: 27px;
+}
+
+#viewerInfo {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        80px
+        50px
+        30px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.75)
+        );
+
+    font-size: 20px;
+}
+
+#viewerSlideshow {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background: rgba(0,0,0,.6);
+    color: #ccc;
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   SETTINGS
+   ============================================================ */
+
+.overlay {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 500;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(0,0,0,.78);
+}
+
+.settingsPanel {
+    width: 850px;
+
+    max-height: 850px;
+
+    padding: 40px 45px;
+
+    background: #1a1a1f;
+
+    border-radius: 18px;
+}
+
+.settingsHeader {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+}
+
+.settingsHeader h1 {
+    margin: 0;
+
+    font-size: 38px;
+}
+
+.settingSection {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #35353a;
+}
+
+.settingSection h2 {
+    margin:
+        0
+        0
+        25px;
+
+    color: #999;
+
+    font-size: 20px;
+}
+
+.settingRow {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    font-size: 23px;
+}
+
+.optionGroup {
+    display: flex;
+
+    gap: 8px;
+}
+
+.optionGroup button {
+    width: 65px;
+    height: 55px;
+
+    border:
+        3px solid transparent;
+
+    border-radius: 7px;
+
+    background: #303036;
+
+    color: white;
+
+    font-size: 21px;
+}
+
+.optionGroup button.selected {
+    background: white;
+
+    color: #111;
+}
+
+.optionGroup button:focus {
+    border-color: white;
+
+    outline: none;
+}
+
+#slideshowInterval {
+    padding:
+        12px
+        20px;
+
+    background: #303036;
+
+    color: white;
+
+    border:
+        2px solid #555;
+
+    border-radius: 6px;
+
+    font-size: 20px;
+}
+
+#settingsUser {
+    margin-bottom: 20px;
+
+    font-size: 22px;
+}
+
+.dangerButton {
+    padding:
+        14px
+        25px;
+
+    background: #722;
+
+    border:
+        3px solid transparent;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-size: 19px;
+}
+
+.secondaryButton {
+    margin-right: 15px;
+    padding: 14px 25px;
+    background: #303036;
+    border: 3px solid transparent;
+    border-radius: 7px;
+    color: white;
+    font-size: 19px;
+}
+
+.secondaryButton:focus {
+    border-color: white;
+    outline: none;
+}
+
+.dangerButton:focus {
+    border-color: white;
+
+    outline: none;
+}
+
+
+/* ============================================================
+   ERROR
+   ============================================================ */
+
+#errorBox {
+    position: absolute;
+
+    left: 50%;
+    bottom: 50px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 2000;
+
+    max-width: 1400px;
+
+    padding:
+        18px
+        30px;
+
+    background:
+        rgba(170,20,20,.95);
+
+    border-radius: 8px;
+
+    font-size: 21px;
+}

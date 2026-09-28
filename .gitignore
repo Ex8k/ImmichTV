@@ -1,0 +1,78 @@
+# ============================================================
+# Tizen generated build and deployment data
+# ============================================================
+Debug/
+Release/
+.build/
+.buildResult/
+.package/
+.sign/
+.tizen-rds/
+.settings/
+.externalToolBuilders/
+
+# Tizen incremental deployment files
+.sdk_delta.info
+.rds_delta
+.manifest.tmp
+
+# Packaged applications
+*.wgt
+*.tpk
+*.rpk
+
+# Generated signing files
+author-signature.xml
+signature[0-9]*.xml
+
+# ============================================================
+# Certificates, private keys and certificate passwords
+# ============================================================
+*.p12
+*.pfx
+*.pem
+*.key
+*.pwd
+*.keystore
+*.jks
+profiles.xml
+
+# ============================================================
+# Local configuration and secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+
+js/config.js
+config.local.js
+*.local.js
+secrets.json
+credentials.json
+
+# ============================================================
+# Dependencies and test output
+# ============================================================
+node_modules/
+coverage/
+
+# ============================================================
+# Logs and temporary files
+# ============================================================
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ============================================================
+# Editors and operating systems
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
